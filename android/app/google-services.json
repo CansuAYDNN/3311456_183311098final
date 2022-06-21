@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "738328531597",
+    "project_id": "mobilmuhasebe-947f4",
+    "storage_bucket": "mobilmuhasebe-947f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:738328531597:android:69319302ed353a608708c4",
+        "android_client_info": {
+          "package_name": "com.example.mobil_muhasebe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "738328531597-klr0hf3o5mimipsd3047dvrh9oqom5ib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpK6mej5CFEbAGgUamZBoPbzusccgYRy4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "738328531597-klr0hf3o5mimipsd3047dvrh9oqom5ib.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
