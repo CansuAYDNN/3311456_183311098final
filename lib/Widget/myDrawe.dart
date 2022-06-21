@@ -16,8 +16,7 @@ class _MyDrawerState extends State {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  /*Icon(Icons.add_card, color: Colors.blue, size: 100.0),*/
-                  Image.asset('assets/Logo.png', width: 100,color: Colors.white,),
+                  Image.asset('assets/Logobeyaz.png', width: 100,color: Colors.white,),
                   Text(
                     "Mobil Muhasebe",
                     style: TextStyle(color: Colors.white, fontSize: 25.0),

@@ -1,3 +1,5 @@
+import 'dart:js';
+
 import 'package:mobil_muhasebe/home_page.dart';
 import 'package:mobil_muhasebe/service/auth.dart';
 import 'package:mobil_muhasebe/login_page.dart';
@@ -7,21 +9,26 @@ import 'package:simple_gradient_text/simple_gradient_text.dart';
 class SignupPage extends StatefulWidget {
   @override
   _SignupPageState createState() => _SignupPageState();
+
 }
 
 class _SignupPageState extends State<SignupPage> {
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _passwordAgainController =
-      TextEditingController();
+  final TextEditingController _passwordAgainController =TextEditingController();
+  final TextEditingController _formKey = TextEditingController();
+
 
   AuthService _authService = AuthService();
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+
+
     return Scaffold(
+
         body: Stack(
       children: [
         Center(
@@ -171,6 +178,7 @@ class _SignupPageState extends State<SignupPage> {
                           child: Padding(
                             padding: const EdgeInsets.all(5.0),
                             child: Center(
+
                               child: Text(
                                 "Kaydet",
                                 style: TextStyle(
@@ -181,19 +189,22 @@ class _SignupPageState extends State<SignupPage> {
                             ),
                           ),
                         ),
-                        onTap: ()  {
+                        onTap: () {
                           _authService
                               .createPerson(
                                   _nameController.text,
                                   _emailController.text,
                                   _passwordController.text)
-                              .then((value) {
-                            return  Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginPage()));
-                          });
-                          
+                              .then(
+                            (value) {
+
+                              return Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => LoginPage()));
+
+                            },
+                          );
                         },
                       ),
                     ],
@@ -223,10 +234,10 @@ class _SignupPageState extends State<SignupPage> {
                 ),
                 GradientText(
                   "Kayıt ol",
-                  style:  TextStyle(
-                      fontSize: 30,
-                      fontWeight: FontWeight.bold,
-                    ),
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold,
+                  ),
                   colors: [
                     Colors.pinkAccent,
                     Colors.purple,

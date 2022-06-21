@@ -18,6 +18,7 @@ import 'package:mobil_muhasebe/screens/iletisim.dart';
 import 'package:mobil_muhasebe/screens/rapor.dart';
 import 'package:mobil_muhasebe/screens/vizyonumuz_misyonumuz.dart';
 import 'package:mobil_muhasebe/signup_page.dart';
+import 'package:mobil_muhasebe/splashscreen.dart';
 import 'home_page.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -44,7 +45,8 @@ import 'package:hive_flutter/hive_flutter.dart';
       debugShowCheckedModeBanner: false,
       initialRoute: "/",
       routes: {
-        "/": (context) => LoginPage(),
+        "/": (context) => splashscreen(),
+        "/splashscreen": (context) => splashscreen(),
         "/login_page": (context) => LoginPage(),
         "/havadurumu": (context) => havadurumu(),
         "/home_page": (context) => homepage(),
