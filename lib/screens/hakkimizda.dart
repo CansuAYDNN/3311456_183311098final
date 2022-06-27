@@ -35,7 +35,7 @@ class _hakkimizdaState extends State {
               fit: BoxFit.cover,
             ),
             Text(
-              "\n \n Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, versions of Lorem Ipsum.",
+              "\n \n Lorem Ipsum is simply dummy text of the printing and typesetting industry close. Lorem Ipsum has been the industry's unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, versions of Lorem Ipsum.",
               style: TextStyle(
                 fontSize: 16,
                 color: Colors.black54,
