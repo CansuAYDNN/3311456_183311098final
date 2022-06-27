@@ -1,38 +1,50 @@
 import 'package:flutter/material.dart';
 import 'package:mobil_muhasebe/Widget/myDrawe.dart';
 
-class hakkimizda extends StatefulWidget{
+class hakkimizda extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _hakkimizdaState();
 }
+
 class _hakkimizdaState extends State {
   @override
-  Widget build (BuildContext context) {
+  Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Hakkımızda"),
-          flexibleSpace: Container(
-            decoration: const BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end:Alignment.topRight,
-                  colors: <Color>[Colors.blueAccent, Colors.blueGrey]
-              ),
-            ),
+      appBar: AppBar(
+        title: Text("Hakkımızda"),
+        flexibleSpace: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.topRight,
+                colors: <Color>[Colors.blueAccent, Colors.blueGrey]),
           ),
         ),
-        drawer: MyDrawer(),
-        body:Container(
-                child:Center(
-                  child:Text("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                    style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 18,
-                      fontStyle: FontStyle.italic,
-                    ),
-                    textAlign: TextAlign.center,
-                  ),
-                )
-            )
-        );
+      ),
+      drawer: MyDrawer(),
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.max,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: <Widget>[
+            Image.asset(
+              "assets/muhasebeBG.jpg",
+              width: 500.0,
+              height: 300.0,
+              fit: BoxFit.cover,
+            ),
+            Text(
+              "\n \n Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, versions of Lorem Ipsum.",
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              ),
+              textAlign: TextAlign.center,
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }

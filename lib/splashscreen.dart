@@ -43,25 +43,32 @@ class _MyAppState extends State<splashscreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-
-        padding: const EdgeInsets.all(60.0),
-        child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Text(
-            "Mobil Muhasebe",
-            style: TextStyle(
-              color: Colors.lightBlue,
-              /* color: Colors.purple.withOpacity(0.95),*/
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
+    return Container(
+      constraints: const BoxConstraints.expand(),
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+            image: AssetImage("assets/bg4img.jpg"), fit: BoxFit.cover),
+      ),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: Container(
+          padding: const EdgeInsets.all(60.0),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              "Mobil Muhasebe",
+              style: TextStyle(
+                color: Colors.lightBlue,
+                fontSize: 50,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-        ),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-              image: AssetImage("assets/bg4img.jpg"), fit: BoxFit.cover),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("assets/LogoMavi.png"),
+            ),
+          ),
         ),
       ),
     );
