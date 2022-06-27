@@ -15,7 +15,7 @@ class _duzensizgiderState extends State {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end:Alignment.topRight,
-                  colors: <Color>[Colors.pink, Colors.deepPurple]
+                  colors: <Color>[Colors.blueAccent, Colors.blueGrey]
               ),
             ),
           ),

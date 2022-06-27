@@ -78,6 +78,11 @@ flutter:
      - assets/playstore.png
      - assets/Logo.png
      - assets/Logobeyaz.png
+     - assets/bgimg.jpg
+     - assets/bg2img.jpg
+     - assets/_bg3img.png
+     - assets/bg4img.jpg
+     - assets/LogoMavi.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

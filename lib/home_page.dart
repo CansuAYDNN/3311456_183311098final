@@ -14,7 +14,7 @@ class _homepageState extends State {
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
                   end:Alignment.topRight,
-                  colors: <Color>[Colors.pink, Colors.deepPurple]
+                  colors: <Color>[Colors.blue, Colors.blueGrey]
               ),
             ),
           ),

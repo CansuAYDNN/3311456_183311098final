@@ -28,21 +28,22 @@ class _SignupPageState extends State<SignupPage> {
 
 
     return Scaffold(
-
         body: Stack(
+
       children: [
         Center(
+
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Container(
-              height: size.height * .7,
-              width: size.width * .85,
+              height: size.height * .5,
+              width: size.width * .90,
               decoration: BoxDecoration(
                   gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [Colors.redAccent, Colors.deepPurple]),
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                      colors: [Colors.lightBlue.shade500, Colors.blueGrey]),
+                  borderRadius: BorderRadius.all(Radius.elliptical(0,50)),
                   boxShadow: [
                     BoxShadow(
                         color: Colors.grey.withOpacity(.75),
@@ -168,27 +169,6 @@ class _SignupPageState extends State<SignupPage> {
                         height: size.height * 0.08,
                       ),
                       InkWell(
-                        child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 5),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.white, width: 2),
-                              //color: colorPrimaryShade,
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(30))),
-                          child: Padding(
-                            padding: const EdgeInsets.all(5.0),
-                            child: Center(
-
-                              child: Text(
-                                "Kaydet",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
                         onTap: () {
                           _authService
                               .createPerson(
@@ -206,6 +186,25 @@ class _SignupPageState extends State<SignupPage> {
                             },
                           );
                         },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              height: 1,
+                              width: 75,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Kayıt Ol",
+                              style: TextStyle(color: Colors.white, fontSize: 18),
+                            ),
+                            Container(
+                              height: 1,
+                              width: 75,
+                              color: Colors.white,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -225,7 +224,7 @@ class _SignupPageState extends State<SignupPage> {
                   onPressed: () => Navigator.pop(context),
                   icon: Icon(
                     Icons.arrow_back_ios_outlined,
-                    color: Colors.deepPurple.withOpacity(.75),
+                    color: Colors.blue.withOpacity(.80),
                     size: 26,
                   ),
                 ),
@@ -233,14 +232,16 @@ class _SignupPageState extends State<SignupPage> {
                   width: size.width * 0.3,
                 ),
                 GradientText(
-                  "Kayıt ol",
+
+                  "Kayıt Ol",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
+
                   ),
                   colors: [
-                    Colors.pinkAccent,
-                    Colors.purple,
+                    Colors.blueAccent,
+                    Colors.blueGrey,
                   ],
                 ),
               ],
@@ -248,6 +249,8 @@ class _SignupPageState extends State<SignupPage> {
           ),
         )
       ],
-    ));
+    ),
+    );
+
   }
 }

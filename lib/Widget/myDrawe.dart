@@ -29,8 +29,8 @@ class _MyDrawerState extends State {
                   begin: Alignment.topRight,
                   end: Alignment.bottomLeft,
                   colors: [
-                    Colors.deepPurple,
-                    Colors.pink,
+                    Colors.blueAccent,
+                    Colors.blueGrey,
                   ]),
             ),
           ),
