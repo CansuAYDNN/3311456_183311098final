@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:mobil_muhasebe/login_page.dart';
-import 'package:mobil_muhasebe/model/transaction.dart';
 import 'package:mobil_muhasebe/screens/doviz.dart';
 import 'package:mobil_muhasebe/screens/duzenli_gelir.dart';
 import 'package:mobil_muhasebe/screens/duzensiz_gider.dart';
@@ -27,10 +26,10 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 
  main() async {
-   WidgetsFlutterBinding.ensureInitialized();
    await Hive.initFlutter();
-   Hive.registerAdapter(TransactionAdapter());
-   await Hive.openBox('transactions');
+   await Hive.openBox('money');
+   await Hive.openBox('yem');
+   await Hive.openBox('tohum');
 
    await Firebase.initializeApp(
        options: FirebaseOptions(
@@ -81,7 +80,7 @@ class _mainpageState extends State<mainpage> {
   Widget build(BuildContext context) => Scaffold(
         body: screens[currentIndex],
         bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.purple,
+          selectedItemColor: Colors.blueGrey,
           type: BottomNavigationBarType.fixed,
           currentIndex: currentIndex,
           onTap: (index) => setState(() => currentIndex = index),
@@ -89,17 +88,17 @@ class _mainpageState extends State<mainpage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: "Anasayfa",
-              backgroundColor: Colors.purple,
+              backgroundColor: Colors.blueGrey,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.ac_unit_outlined),
               label: "Hava Durumu",
-              backgroundColor: Colors.purple,
+              backgroundColor: Colors.blueGrey,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.attach_money),
               label: "Döviz",
-              backgroundColor: Colors.purple,
+              backgroundColor: Colors.blueGrey,
             ),
           ],
         ),

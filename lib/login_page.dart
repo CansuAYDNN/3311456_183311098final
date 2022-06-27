@@ -22,7 +22,8 @@ class _LoginPageState extends State<LoginPage> {
     return Container(
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
-        image: DecorationImage(image: AssetImage("assets/bg4img.jpg"), fit: BoxFit.cover),
+        image: DecorationImage(
+            image: AssetImage("assets/bg4img.jpg"), fit: BoxFit.cover),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
@@ -33,17 +34,18 @@ class _LoginPageState extends State<LoginPage> {
               height: size.height * .4,
               width: size.width * .95,
               decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                      colors: [Colors.lightBlue, Colors.blueGrey]),
-                  borderRadius: BorderRadius.all(Radius.elliptical(0,50)),
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.grey.withOpacity(.60),
-                        blurRadius: 10,
-                        spreadRadius: 2)
-                  ]),
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [Colors.lightBlue, Colors.blueGrey]),
+                borderRadius: BorderRadius.all(Radius.elliptical(0, 50)),
+                boxShadow: [
+                  BoxShadow(
+                      color: Colors.grey.withOpacity(.60),
+                      blurRadius: 10,
+                      spreadRadius: 2)
+                ],
+              ),
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Center(
@@ -51,30 +53,34 @@ class _LoginPageState extends State<LoginPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TextField(
-                          controller: _emailController,
-                          style: TextStyle(
+                        controller: _emailController,
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                        cursorColor: Colors.white,
+                        keyboardType: TextInputType.emailAddress,
+                        decoration: InputDecoration(
+                          prefixIcon: Icon(
+                            Icons.mail,
                             color: Colors.white,
                           ),
-                          cursorColor: Colors.white,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(
-                              Icons.mail,
+                          hintText: 'E-Mail',
+                          prefixText: ' ',
+                          hintStyle:
+                              TextStyle(color: Colors.white, fontSize: 17),
+                          focusColor: Colors.white,
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
                               color: Colors.white,
                             ),
-                            hintText: 'E-Mail',
-                            prefixText: ' ',
-                            hintStyle: TextStyle(color: Colors.white, fontSize: 17),
-                            focusColor: Colors.white,
-                            focusedBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(
                               color: Colors.white,
-                            )),
-                            enabledBorder: UnderlineInputBorder(
-                                borderSide: BorderSide(
-                              color: Colors.white,
-                            )),
-                          )),
+                            ),
+                          ),
+                        ),
+                      ),
                       SizedBox(
                         height: size.height * 0.02,
                       ),
@@ -92,10 +98,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             hintText: 'Parola',
                             prefixText: ' ',
-                            hintStyle: TextStyle(
-                              color: Colors.white,
-                              fontSize: 17
-                            ),
+                            hintStyle:
+                                TextStyle(color: Colors.white, fontSize: 17),
                             focusColor: Colors.white,
                             focusedBorder: UnderlineInputBorder(
                                 borderSide: BorderSide(
@@ -111,17 +115,15 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       InkWell(
                         onTap: () {
-
                           _authService
-                              .signIn(
-                                  _emailController.text, _passwordController.text)
+                              .signIn(_emailController.text,
+                                  _passwordController.text)
                               .then((value) {
                             return Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) => homepage()));
                           });
-
                         },
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -133,7 +135,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Text(
                               "Giriş Yap",
-                              style: TextStyle(color: Colors.white, fontSize: 18),
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
                             ),
                             Container(
                               height: 1,
@@ -163,8 +166,8 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             Text(
                               "Kayıt ol",
-                              style: TextStyle(color: Colors.white, fontSize: 18),
-
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
                             ),
                             Container(
                               height: 1,
@@ -184,5 +187,4 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
   }
-
 }

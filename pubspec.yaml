@@ -40,18 +40,30 @@ dependencies:
   simple_gradient_text: ^1.2.3
   hive: ^2.2.2
   hive_flutter: ^1.1.0
-  hive_generator: ^1.1.3
+  sqflite:
+  chart_sparkline: ^1.0.11
+  flutter_staggered_grid_view: ^0.6.1
+  sparkline: ^1.0.0
+  flutter_svg: ^1.1.0
+  google_fonts: ^3.0.1
+  fl_chart:
+  date_format:
+  shared_preferences:
+
 
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  local_auth:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.1.11
+  hive_generator: ^1.1.3
+
 
 
   # The "flutter_lints" package below contains a set of recommended lints to

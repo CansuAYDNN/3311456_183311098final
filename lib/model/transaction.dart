@@ -1,18 +1,12 @@
-import 'package:hive/hive.dart';
+class TransactionModel {
+  int amount;
+  final String note;
+  final DateTime date;
+  final String type;
 
-part 'transaction.g.dart';
+  addAmount(int amount) {
+    this.amount = this.amount + amount;
+  }
 
-@HiveType(typeId: 0)
-class Transaction extends HiveObject {
-  @HiveField(0)
-  late String name;
-
-  @HiveField(1)
-  late DateTime createdDate;
-
-  @HiveField(2)
-  late bool isExpense = true;
-
-  @HiveField(3)
-  late double amount;
+  TransactionModel(this.amount, this.note, this.date, this.type);
 }
