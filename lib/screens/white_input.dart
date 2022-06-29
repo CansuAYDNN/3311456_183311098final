@@ -24,7 +24,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end:Alignment.topRight,
-                colors: <Color>[Colors.pink, Colors.deepPurple]
+                colors: <Color>[Colors.blue, Colors.blue]
             ),
           ),
         ),
@@ -40,9 +40,9 @@ class _InputWhitePageState extends State<InputWhitePage> {
                 });
               },
               child: Text(
-                'tap to delete',
+                'Sil',
                 style: TextStyle(
-                    color: Color(0xFFFFB6B6),
+                    color: Colors.white,
                     fontSize: 17.0,
                     fontFamily: 'Quicksand',
                     fontWeight: FontWeight.bold),
@@ -52,7 +52,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
               child: Text(
                 currInput.toString(),
                 style: TextStyle(
-                    color: Color(0xFFEC5759),
+                    color: Colors.blue,
                     fontSize: 100.0,
                     fontFamily: 'Quicksand',
                     fontWeight: FontWeight.bold),
@@ -83,7 +83,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
                 width: 80.0,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(40.0),
-                    color: Color(0xFFFFB6B6)),
+                    color: Colors.lightBlue,),
                 child: Center(
                     child: Text(
                       number1.toString(),
@@ -101,7 +101,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFFFB6B6)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 number2.toString(),
@@ -122,7 +122,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFFFB6B6)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 number3.toString(),
@@ -151,7 +151,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFFFB6B6)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 '.',
@@ -172,7 +172,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFFFB6B6)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 0.toString(),
@@ -194,7 +194,7 @@ class _InputWhitePageState extends State<InputWhitePage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFFC1514)),
+                color: Colors.blue,),
             child: Center(
                 child: Icon(
                   Icons.check,

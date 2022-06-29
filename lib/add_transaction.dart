@@ -14,8 +14,8 @@ class AddExpenseNoGradient extends StatefulWidget {
 class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
   DateTime selectedDate = DateTime.now();
   int? amount;
-  String note = "Kullanılan.";
-  String type = "Alınan.";
+  String note = "Gider.";
+  String type = "Gelir.";
 
   List<String> months = [
     "Ocak",
@@ -55,9 +55,10 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.topRight,
-                  colors: <Color>[Colors.blueGrey, Colors.white]),
+                begin: Alignment.topLeft,
+                end: Alignment.topRight,
+                colors: <Color>[Colors.blueGrey, Colors.white],
+              ),
             ),
           ),
         ),
@@ -94,7 +95,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                     12.0,
                   ),
                   child: Icon(
-                    Icons.unarchive_rounded,
+                    Icons.attach_money,
                     size: 24.0,
                     // color: Colors.grey[700],
                     color: Colors.white,
@@ -106,7 +107,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: "0 kg",
+                      hintText: "0 TL",
                       border: InputBorder.none,
                     ),
                     style: TextStyle(
@@ -171,7 +172,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                     12.0,
                   ),
                   child: Icon(
-                    Icons.vaccines_outlined,
+                    Icons.info_outline_rounded,
                     size: 24.0,
                     // color: Colors.grey[700],
                     color: Colors.white,
@@ -225,49 +226,49 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                 ),
                 ChoiceChip(
                   label: Text(
-                    "Alınan",
+                    "Gelir",
                     style: TextStyle(
                       fontSize: 18.0,
-                      color: type == "Alınan" ? Colors.white : Colors.black,
+                      color: type == "Gelir" ? Colors.white : Colors.black,
                     ),
                   ),
                   selectedColor: Colors.green,
                   onSelected: (val) {
                     if (val) {
                       setState(() {
-                        type = "Alınan";
-                        if (note.isEmpty || note == "Kullanılan") {
-                          note = 'Alınan';
+                        type = "Gelir";
+                        if (note.isEmpty || note == "Gider") {
+                          note = 'Gelir';
                         }
                       });
                     }
                   },
-                  selected: type == "Alınan" ? true : false,
+                  selected: type == "Gelir" ? true : false,
                 ),
                 SizedBox(
                   width: 8.0,
                 ),
                 ChoiceChip(
                   label: Text(
-                    "Kullanılan",
+                    "Gider",
                     style: TextStyle(
                       fontSize: 18.0,
-                      color: type == "Kullanılan" ? Colors.white : Colors.black,
+                      color: type == "Gider" ? Colors.white : Colors.black,
                     ),
                   ),
                   selectedColor: Colors.green,
                   onSelected: (val) {
                     if (val) {
                       setState(() {
-                        type = "Kullanılan";
+                        type = "Gider";
 
-                        if (note.isEmpty || note == "Alınan") {
-                          note = 'Kullanılan';
+                        if (note.isEmpty || note == "Gelir") {
+                          note = 'Gider';
                         }
                       });
                     }
                   },
-                  selected: type == "Kullanılan" ? true : false,
+                  selected: type == "Gider" ? true : false,
                 ),
               ],
             ),
@@ -333,7 +334,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
-                  MaterialStateProperty.all<Color>(Colors.green),
+                      MaterialStateProperty.all<Color>(Colors.green),
                 ),
                 onPressed: () {
                   if (amount != null) {

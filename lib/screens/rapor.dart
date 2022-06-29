@@ -88,7 +88,7 @@ class _raporState extends State<rapor> {
     List tempdataSet = [];
 
     for (TransactionModel item in entireData) {
-      if (item.date.month == today.month && item.type == "Kullanılan") {
+      if (item.date.month == today.month && item.type == "Gider") {
         tempdataSet.add(item);
       }
     }
@@ -112,7 +112,7 @@ class _raporState extends State<rapor> {
     totalExpense = 0;
     for (TransactionModel data in entireData) {
       if (data.date.month == today.month) {
-        if (data.type == "Alınan") {
+        if (data.type == "Gelir") {
           totalBalance += data.amount;
           totalIncome += data.amount;
         } else {
@@ -122,23 +122,31 @@ class _raporState extends State<rapor> {
       }
     }
   }
-
+///////////// APPBAR /////////////
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Gübre"),
+        title: Text("Gelir - Gider - Rapor"),
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.topRight,
-                colors: <Color>[Colors.blueGrey, Colors.white]),
+              begin: Alignment.topLeft,
+              end: Alignment.topRight,
+              colors: <Color>[
+                Colors.blueAccent,
+                Colors.blueGrey,
+              ],
+            ),
           ),
         ),
       ),
+
+      /////////// SOL MENÜ //////////////
+
       drawer: MyDrawer(),
-      //
+
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -157,11 +165,11 @@ class _raporState extends State<rapor> {
             16.0,
           ),
         ),
-        backgroundColor: Colors.green[50],
+        backgroundColor: Colors.blueAccent,
         child: Icon(
           Icons.add_outlined,
           size: 32.0,
-          color: Colors.green[900],
+          color: Colors.white,
         ),
       ),
       //
@@ -195,7 +203,7 @@ class _raporState extends State<rapor> {
             getPlotPoints(snapshot.data!);
             return ListView(
               children: [
-                //
+                /////////// TABLONUN RENKLERİ ///////////
                 Padding(
                   padding: const EdgeInsets.all(
                     12.0,
@@ -214,8 +222,8 @@ class _raporState extends State<rapor> {
                                   ),
                                   gradient: LinearGradient(
                                     colors: <Color>[
-                                      Colors.green,
-                                      Colors.black26,
+                                      Colors.blueAccent,
+                                      Colors.lightBlue,
                                     ],
                                   ),
                                 ),
@@ -229,7 +237,8 @@ class _raporState extends State<rapor> {
                 ),
                 //
                 selectMonth(),
-                //
+
+                ///////// TOPLAM MİKTAR KISMI /////////////
                 Container(
                   width: MediaQuery.of(context).size.width * 0.8,
                   margin: EdgeInsets.all(
@@ -239,8 +248,8 @@ class _raporState extends State<rapor> {
                     decoration: const BoxDecoration(
                       gradient: LinearGradient(
                         colors: <Color>[
-                          Colors.green,
-                          Colors.lightGreen,
+                          Colors.blueAccent,
+                          Colors.blueGrey,
                         ],
                       ),
                       borderRadius: BorderRadius.all(
@@ -278,7 +287,7 @@ class _raporState extends State<rapor> {
                             height: 12.0,
                           ),
                           Text(
-                            ' $totalBalance kg',
+                            ' $totalBalance TL',
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               fontSize: 38.0,
@@ -308,7 +317,12 @@ class _raporState extends State<rapor> {
                     ),
                   ),
                 ),
-                //
+
+
+
+                ///////////// GRAFİK /////////////////
+
+
                 Padding(
                   padding: const EdgeInsets.all(
                     12.0,
@@ -316,7 +330,7 @@ class _raporState extends State<rapor> {
                   child: Text(
                     "${months[today.month - 1]} ${today.year}",
                     style: TextStyle(
-                      fontSize: 32.0,
+                      fontSize: 28.0,
                       color: Colors.black87,
                       fontWeight: FontWeight.w900,
                     ),
@@ -325,89 +339,91 @@ class _raporState extends State<rapor> {
                 //
                 dataSet.isEmpty || dataSet.length < 2
                     ? Container(
-                  padding: EdgeInsets.symmetric(
-                    vertical: 40.0,
-                    horizontal: 20.0,
-                  ),
-                  margin: EdgeInsets.all(
-                    12.0,
-                  ),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(
-                      8.0,
-                    ),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset:
-                        Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: Text(
-                    "Grafik için yeterli veri bulunmamaktadır.",
-                    style: TextStyle(
-                      fontSize: 20.0,
-                    ),
-                  ),
-                )
-                    : Container(
-                  height: 400.0,
-                  padding: EdgeInsets.symmetric(
-                    vertical: 40.0,
-                    horizontal: 12.0,
-                  ),
-                  margin: EdgeInsets.all(
-                    12.0,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.only(
-                      topLeft: Radius.circular(8),
-                      topRight: Radius.circular(8),
-                      bottomLeft: Radius.circular(8),
-                      bottomRight: Radius.circular(8),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset:
-                        Offset(0, 3), // changes position of shadow
-                      ),
-                    ],
-                  ),
-                  child: LineChart(
-                    LineChartData(
-                      borderData: FlBorderData(
-                        show: false,
-                      ),
-                      lineBarsData: [
-                        LineChartBarData(
-                          // spots: getPlotPoints(snapshot.data!),
-                          spots: getPlotPoints(snapshot.data!),
-                          isCurved: false,
-                          barWidth: 2.5,
-                          showingIndicators: [200, 200, 90, 10],
-                          dotData: FlDotData(
-                            show: true,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 40.0,
+                          horizontal: 20.0,
+                        ),
+                        margin: EdgeInsets.all(
+                          12.0,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(
+                            8.0,
+                          ),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: Text(
+                          "Grafik için yeterli veri bulunmamaktadır.",
+                          style: TextStyle(
+                            fontSize: 20.0,
                           ),
                         ),
-                      ],
-                    ),
-                  ),
-                ),
-                //
+                      )
+                    : Container(
+                        height: 400.0,
+                        padding: EdgeInsets.symmetric(
+                          vertical: 40.0,
+                          horizontal: 12.0,
+                        ),
+                        margin: EdgeInsets.all(
+                          12.0,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(8),
+                            topRight: Radius.circular(8),
+                            bottomLeft: Radius.circular(8),
+                            bottomRight: Radius.circular(8),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset:
+                                  Offset(0, 3), // changes position of shadow
+                            ),
+                          ],
+                        ),
+                        child: LineChart(
+                          LineChartData(
+                            borderData: FlBorderData(
+                              show: false,
+                            ),
+                            lineBarsData: [
+                              LineChartBarData(
+                                // spots: getPlotPoints(snapshot.data!),
+                                spots: getPlotPoints(snapshot.data!),
+                                isCurved: false,
+                                barWidth: 2.5,
+                                showingIndicators: [200, 200, 90, 10],
+                                dotData: FlDotData(
+                                  show: true,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+
+                //////// SON İŞLEMLER ////////////
                 Padding(
                   padding: const EdgeInsets.all(12.0),
                   child: Text(
                     "Son işlemler:",
                     style: TextStyle(
-                      fontSize: 32.0,
+                      fontSize: 28.0,
                       color: Colors.black87,
                       fontWeight: FontWeight.w900,
                     ),
@@ -421,16 +437,14 @@ class _raporState extends State<rapor> {
                   itemBuilder: (context, index) {
                     TransactionModel dataAtIndex;
                     try {
-                      // dataAtIndex = snapshot.data![index];
                       dataAtIndex = snapshot.data![index];
                     } catch (e) {
-                      // deleteAt deletes that key and value,
-                      // hence makign it null here., as we still build on the length.
+
                       return Container();
                     }
 
                     if (dataAtIndex.date.month == today.month) {
-                      if (dataAtIndex.type == "Alınan") {
+                      if (dataAtIndex.type == "Gelir") {
                         return incomeTile(
                           dataAtIndex.amount,
                           dataAtIndex.note,
@@ -466,13 +480,6 @@ class _raporState extends State<rapor> {
     );
   }
 
-//
-//
-//
-// Widget
-//
-//
-
   Widget cardIncome(String value) {
     return Row(
       children: [
@@ -489,7 +496,7 @@ class _raporState extends State<rapor> {
           child: Icon(
             Icons.arrow_downward,
             size: 28.0,
-            color: Colors.green[700],
+            color: Colors.blue,
           ),
           margin: EdgeInsets.only(
             right: 8.0,
@@ -499,7 +506,7 @@ class _raporState extends State<rapor> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "ALınan",
+              "Gelir",
               style: TextStyle(
                 fontSize: 14.0,
                 color: Colors.white70,
@@ -545,7 +552,7 @@ class _raporState extends State<rapor> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Kullanılan.",
+              "Gider.",
               style: TextStyle(
                 fontSize: 14.0,
                 color: Colors.white70,
@@ -577,7 +584,7 @@ class _raporState extends State<rapor> {
         bool? answer = await showConfirmDialog(
           context,
           "Uyarı",
-          "Kayıt silinecek. Bu işlem geri döndürülemez.Onaylıyor musunuz ?",
+          "Kayıt silinecek. Bu işlem geri döndürülemez. Onaylıyor musunuz ?",
         );
         if (answer != null && answer) {
           await dbHelper.deleteData(index);
@@ -613,9 +620,9 @@ class _raporState extends State<rapor> {
                           width: 4.0,
                         ),
                         Text(
-                          "Kullanılan",
+                          "Gider",
                           style: TextStyle(
-                            fontSize: 20.0,
+                            fontSize: 18.0,
                           ),
                         ),
                       ],
@@ -675,7 +682,7 @@ class _raporState extends State<rapor> {
         bool? answer = await showConfirmDialog(
           context,
           "Uyarı!",
-          "Kayıt silinecek. Bu işlem geri döndürülemez.Onaylıyor musunuz ?",
+          "Kayıt silinecek. Bu işlem geri döndürülemez. Onaylıyor musunuz ?",
         );
 
         if (answer != null && answer) {
@@ -703,15 +710,15 @@ class _raporState extends State<rapor> {
                     Icon(
                       Icons.arrow_circle_down_outlined,
                       size: 28.0,
-                      color: Colors.green[700],
+                      color: Colors.blue,
                     ),
                     SizedBox(
                       width: 4.0,
                     ),
                     Text(
-                      "Credit",
+                      "Gelir",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                       ),
                     ),
                   ],
@@ -758,6 +765,10 @@ class _raporState extends State<rapor> {
     );
   }
 
+
+//////////// ÜSTEKİ AYLAR ///////////////
+
+
   Widget selectMonth() {
     return Padding(
       padding: EdgeInsets.all(
@@ -780,15 +791,15 @@ class _raporState extends State<rapor> {
                 borderRadius: BorderRadius.circular(
                   8.0,
                 ),
-                color: index == 3 ? Colors.green[300] : Colors.white,
+                color: index == 3 ? Colors.blue : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
                 months[now.month - 3],
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 19.0,
                   fontWeight: FontWeight.w600,
-                  color: index == 3 ? Colors.white : Colors.green[900],
+                  color: index == 3 ? Colors.white : Colors.black87,
                 ),
               ),
             ),
@@ -807,15 +818,15 @@ class _raporState extends State<rapor> {
                 borderRadius: BorderRadius.circular(
                   8.0,
                 ),
-                color: index == 2 ? Colors.green[300] : Colors.white,
+                color: index == 2 ? Colors.blueAccent : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
                 months[now.month - 2],
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 19.0,
                   fontWeight: FontWeight.w600,
-                  color: index == 2 ? Colors.white : Colors.green[900],
+                  color: index == 2 ? Colors.white : Colors.black87,
                 ),
               ),
             ),
@@ -834,15 +845,15 @@ class _raporState extends State<rapor> {
                 borderRadius: BorderRadius.circular(
                   8.0,
                 ),
-                color: index == 1 ? Colors.green[300] : Colors.white,
+                color: index == 1 ? Colors.blueAccent : Colors.white,
               ),
               alignment: Alignment.center,
               child: Text(
                 months[now.month - 1],
                 style: TextStyle(
-                  fontSize: 20.0,
+                  fontSize: 19.0,
                   fontWeight: FontWeight.w600,
-                  color: index == 1 ? Colors.white : Colors.green[900],
+                  color: index == 1 ? Colors.white : Colors.black87,
                 ),
               ),
             ),

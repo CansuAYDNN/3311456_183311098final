@@ -18,7 +18,7 @@ showConfirmDialog(BuildContext context, String title, String content) async {
             ),
           ),
           child: Text(
-            "Evet.",
+            "Evet",
           ),
         ),
         ElevatedButton(
@@ -26,7 +26,7 @@ showConfirmDialog(BuildContext context, String title, String content) async {
             Navigator.of(context).pop(false);
           },
           child: Text(
-            "Hayır.",
+            "Hayır",
           ),
         ),
       ],

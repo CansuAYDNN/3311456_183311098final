@@ -4,14 +4,12 @@ import '../Widget/myDrawe.dart';
 
 class Doviz extends StatelessWidget {
   @override
-  Widget build (BuildContext context) {
-    return MaterialApp(
-    );
+  Widget build(BuildContext context) {
+    return MaterialApp();
   }
 }
 
 class doviz extends StatefulWidget {
-
   @override
   _dovizState createState() => _dovizState();
 }
@@ -20,8 +18,14 @@ class _dovizState extends State<doviz> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: MyDrawer(),
-      body: DashboardPage(currencyVal: 0.0 ,convertedCurrency: 0.0 ,currencyone: 'USD',currencytwo: 'RUB',isWhite: false,)
+      drawer: MyDrawer(),
+      body: DashboardPage(
+        currencyVal: 0.0,
+        convertedCurrency: 0.0,
+        currencyone: 'USD',
+        currencytwo: 'RUB',
+        isWhite: false,
+      ),
     );
   }
 }

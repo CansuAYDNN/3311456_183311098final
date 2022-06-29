@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'weathertile.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 
 class MainWidget extends StatelessWidget{
   final String location;
@@ -31,8 +30,8 @@ class MainWidget extends StatelessWidget{
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               colors: [
-                Colors.purple,
-                Colors.pink,
+                Colors.white70,
+                Colors.blueAccent,
               ]
             )
           ),
@@ -46,26 +45,26 @@ class MainWidget extends StatelessWidget{
               Text(
                 "${location.toString()}",
                 style: TextStyle(
-                  fontSize: 30.0,
+                  fontSize: 40.0,
                   fontWeight: FontWeight.w900,
                   color: Colors.white
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
+                padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: Text(
                   "${temp.toInt().toString()}°",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 40.0,
-                      fontWeight: FontWeight.w900),
+                      fontWeight: FontWeight.w700),
                 ),
               ),
               Text(
-                "En yüksek ${tempMax.toInt().toString()}° , En düşük ${tempMin.toInt().toString()}°",
+                "En Yüksek ${tempMax.toInt().toString()}° ,  En Düşük ${tempMin.toInt().toString()}°",
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 14.0,
+                    fontSize: 16.0,
                     fontWeight: FontWeight.w600
                 ),
               )
@@ -80,7 +79,7 @@ class MainWidget extends StatelessWidget{
                 weathertile(icon: Icons.thermostat, title: "Sıcaklık", subtitle: "${temp.toInt().toString()} °"),
                 weathertile(icon: Icons.filter_drama_outlined, title: "Hava", subtitle: "${weather.toString()}"),
                 weathertile(icon: Icons.wb_sunny, title: "Nem", subtitle: "${humidity.toString()}%"),
-                weathertile(icon: Icons.waves_outlined, title: "Rüzgar hızı", subtitle: "${windspeed.toString().toString()} kmh"),
+                weathertile(icon: Icons.waves_outlined, title: "Rüzgar Hızı", subtitle: "${windspeed.toString().toString()} kmh"),
               ],
             ),
           ),)

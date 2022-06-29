@@ -24,13 +24,13 @@ class _InputRedPageState extends State<InputRedPage> {
             gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end:Alignment.topRight,
-                colors: <Color>[Colors.pink, Colors.deepPurple]
+                colors: <Color>[Colors.lightBlue ,Colors.lightBlue]
             ),
           ),
         ),
       ),
       drawer: MyDrawer(),
-      backgroundColor: Color(0xFFEC5759),
+      backgroundColor: Colors.lightBlue,
       body: Column(
         children: <Widget>[
           SizedBox(height: 25.0),
@@ -41,9 +41,9 @@ class _InputRedPageState extends State<InputRedPage> {
               });
             },
             child: Text(
-              'tap to delete',
+              'Sil',
               style: TextStyle(
-                  color: Color(0xFFF1ABAB),
+                  color: Colors.lightBlue,
                   fontSize: 17.0,
                   fontFamily: 'Quicksand',
                   fontWeight: FontWeight.bold),
@@ -86,7 +86,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFB73434)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 number1.toString(),
@@ -107,7 +107,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFB73434)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 number2.toString(),
@@ -128,7 +128,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFB73434)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 number3.toString(),
@@ -157,7 +157,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFB73434)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 '.',
@@ -178,7 +178,7 @@ class _InputRedPageState extends State<InputRedPage> {
             width: 80.0,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40.0),
-                color: Color(0xFFB73434)),
+                color: Colors.lightBlue,),
             child: Center(
               child: Text(
                 0.toString(),
@@ -203,7 +203,7 @@ class _InputRedPageState extends State<InputRedPage> {
             child: Center(
                 child: Icon(
                   Icons.check,
-                  color: Color(0xFFFC1514),
+                  color: Colors.lightBlue,
                   size: 25.0,
                 )),
           ),

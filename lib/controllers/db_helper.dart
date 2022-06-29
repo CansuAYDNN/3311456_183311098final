@@ -11,8 +11,6 @@ class DbHelper {
 
   openBox() {
     box = Hive.box('money');
-    box = Hive.box('yem');
-    box = Hive.box('tohum');
   }
 
   void addData(int amount, DateTime date, String type, String note) async {

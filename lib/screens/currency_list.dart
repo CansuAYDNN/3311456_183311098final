@@ -13,37 +13,42 @@ class _CurrencyListState extends State<CurrencyList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Color(0xFFEC5759),
-        appBar: AppBar(
-          backgroundColor: Color(0xFFEC5759),
-          elevation: 0.0,
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.white),
-            onPressed: () {
-              Navigator.of(context).pop();
-            },
-          ),
+      backgroundColor: Colors.lightBlue,
+      appBar: AppBar(
+        backgroundColor: Colors.lightBlue,
+        elevation: 0.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
         ),
-        body: ListView(
-          children: <Widget>[
-            getListItem('Russian Ruble', 'RUB'),
-            getListItem('Indian Rupee', 'INR'),
-            getListItem('Japanese Yen', 'JPY'),
-            getListItem('Pound Sterling', 'GBP'),
-          ],
-        ));
+      ),
+      body: ListView(
+        children: <Widget>[
+          getListItem('Rusya Rublesi', 'RUB'),
+          getListItem('Hindistan Rupe', 'INR'),
+          getListItem('Japonya Yen', 'JPY'),
+          getListItem('Pound Sterlin', 'GBP'),
+        ],
+      ),
+    );
   }
 
   Widget getListItem(String currencyName, String currency) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).pushReplacement(CupertinoPageRoute(
+        Navigator.of(context).pushReplacement(
+          CupertinoPageRoute(
             builder: (context) => DashboardPage(
-                currencyVal: 0.0,
-                isWhite: false,
-                convertedCurrency: 0.0,
-                currencyone: 'USD',
-                currencytwo: currency)));
+              currencyVal: 0.0,
+              isWhite: false,
+              convertedCurrency: 0.0,
+              currencyone: 'USD',
+              currencytwo: currency,
+            ),
+          ),
+        );
       },
       child: Padding(
         padding: EdgeInsets.only(left: 25.0, bottom: 20.0),

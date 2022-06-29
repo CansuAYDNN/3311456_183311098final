@@ -7,6 +7,5 @@ class TransactionModel {
   addAmount(int amount) {
     this.amount = this.amount + amount;
   }
-
   TransactionModel(this.amount, this.note, this.date, this.type);
 }

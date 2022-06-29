@@ -1,16 +1,11 @@
 
 import 'dart:js';
-
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:mobil_muhasebe/login_page.dart';
 import 'package:mobil_muhasebe/screens/doviz.dart';
-import 'package:mobil_muhasebe/screens/duzenli_gelir.dart';
-import 'package:mobil_muhasebe/screens/duzensiz_gider.dart';
-import 'package:mobil_muhasebe/screens/duzenli_gider.dart';
-import 'package:mobil_muhasebe/screens/duzensiz_gelir.dart';
 import 'package:mobil_muhasebe/screens/hakkimizda.dart';
 import 'package:mobil_muhasebe/screens/havadurumu.dart';
 import 'package:mobil_muhasebe/screens/iletisim.dart';
@@ -28,8 +23,6 @@ import 'package:hive_flutter/hive_flutter.dart';
  main() async {
    await Hive.initFlutter();
    await Hive.openBox('money');
-   await Hive.openBox('yem');
-   await Hive.openBox('tohum');
 
    await Firebase.initializeApp(
        options: FirebaseOptions(
@@ -49,10 +42,6 @@ import 'package:hive_flutter/hive_flutter.dart';
         "/login_page": (context) => LoginPage(),
         "/havadurumu": (context) => havadurumu(),
         "/home_page": (context) => homepage(),
-        "/duzensiz_gider": (context) => duzensiz_gider(),
-        "/duzensiz_gelir": (context) => duzensiz_gelir(),
-        "/duzenli_gider": (context) => duzenli_gider(),
-        /*"/duzenli_gelir": (context) => TransactionPage(), */
         "/hakkimizda": (context) => hakkimizda(),
         "/iletisim": (context) => iletisim(),
         "/rapor": (context) => rapor(),
@@ -78,29 +67,29 @@ class _mainpageState extends State<mainpage> {
   ];
   @override
   Widget build(BuildContext context) => Scaffold(
-        body: screens[currentIndex],
-        bottomNavigationBar: BottomNavigationBar(
-          selectedItemColor: Colors.blueGrey,
-          type: BottomNavigationBarType.fixed,
-          currentIndex: currentIndex,
-          onTap: (index) => setState(() => currentIndex = index),
-          items: [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: "Anasayfa",
-              backgroundColor: Colors.blueGrey,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.ac_unit_outlined),
-              label: "Hava Durumu",
-              backgroundColor: Colors.blueGrey,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.attach_money),
-              label: "Döviz",
-              backgroundColor: Colors.blueGrey,
-            ),
-          ],
+    body: screens[currentIndex],
+    bottomNavigationBar: BottomNavigationBar(
+      selectedItemColor: Colors.blueGrey,
+      type: BottomNavigationBarType.fixed,
+      currentIndex: currentIndex,
+      onTap: (index) => setState(() => currentIndex = index),
+      items: [
+        BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          label: "Anasayfa",
+          backgroundColor: Colors.blueGrey,
         ),
-      );
+        BottomNavigationBarItem(
+          icon: Icon(Icons.ac_unit_outlined),
+          label: "Hava Durumu",
+          backgroundColor: Colors.blueGrey,
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.attach_money),
+          label: "Döviz",
+          backgroundColor: Colors.blueGrey,
+        ),
+      ],
+    ),
+  );
 }

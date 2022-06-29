@@ -47,7 +47,7 @@ class _MyAppState extends State<splashscreen> {
       constraints: const BoxConstraints.expand(),
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("assets/bg4img.jpg"), fit: BoxFit.cover),
+            image: AssetImage("assets/bg4img.jpg",), fit: BoxFit.cover,),
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,

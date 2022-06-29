@@ -15,9 +15,13 @@ class _hakkimizdaState extends State {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.topRight,
-                colors: <Color>[Colors.blueAccent, Colors.blueGrey]),
+              begin: Alignment.topLeft,
+              end: Alignment.topRight,
+              colors: <Color>[
+                Colors.blueAccent,
+                Colors.blueGrey,
+              ],
+            ),
           ),
         ),
       ),

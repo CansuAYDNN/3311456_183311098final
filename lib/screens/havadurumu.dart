@@ -28,6 +28,9 @@ class WeatherInfo{
   final int humidity;
   final double windspeed;
 
+
+
+
   WeatherInfo({
     required this.location,
     required this.temp,
@@ -36,7 +39,9 @@ class WeatherInfo{
     required this.tempMin,
     required this.weather,
     required this.windspeed
+
   });
+
 
   factory WeatherInfo.fromJson(Map<String , dynamic >json){
     return WeatherInfo(
@@ -59,7 +64,6 @@ class havadurumu extends StatefulWidget {
 }
 
 class _havadurumuState extends State<havadurumu> {
-
   late Future<WeatherInfo> futureWeather;
   @override
   void initState(){

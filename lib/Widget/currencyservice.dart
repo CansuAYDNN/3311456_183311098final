@@ -6,11 +6,11 @@ import '../screens/dashboard.dart';
 
 class CurrencyService {
   getCurrencyString(currency) {
-    if (currency == 'USD') return 'United States Dollar';
-    if (currency == 'RUB') return 'Russian Ruble';
-    if (currency == 'JPY') return 'Japanese Yen';
-    if (currency == 'INR') return 'Indian Rupee';
-    if (currency == 'GBP') return 'Pound Sterling';
+    if (currency == 'USD') return 'Amerikan Doları';
+    if (currency == 'RUB') return 'Rusya Rublesi';
+    if (currency == 'JPY') return 'Japon Yeni';
+    if (currency == 'INR') return 'Hindistan Rupee';
+    if (currency == 'GBP') return 'İngiliz Sterlini';
   }
 
   convertCurrency(String fromCurrency, String toCurrency, int amount, context) {

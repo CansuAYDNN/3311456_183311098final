@@ -14,7 +14,7 @@ class weathertile extends StatelessWidget{
       leading: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Icon(icon,color: Colors.purple[700],)
+          Icon(icon,color: Colors.blue[700],)
         ],
       ),
       title: Text(
@@ -29,7 +29,7 @@ class weathertile extends StatelessWidget{
         style: TextStyle(
             fontSize: 19.0,
             fontWeight: FontWeight.w600,
-            color: Colors.purple[300]
+            color: Colors.blueAccent[300]
         ),
       ),
     );

@@ -42,52 +42,10 @@ class _MyDrawerState extends State {
               Navigator.pushNamed(context, "/mainpage");
             },
           ),
-          ExpansionTile(
-            leading: Icon(Icons.account_balance_wallet_outlined),
-            title: Text('Gelir'),
-            trailing: Icon(Icons.arrow_drop_down),
-            children: <Widget>[
-              /*  ListTile(
-                title: Text('Düzenli Gelir'),
-                trailing: Icon(Icons.arrow_right),
-                onTap: () {
-                  Navigator.pushNamed(context, "/duzenli_gelir");
-                },
-              ),*/
 
-              ListTile(
-                title: Text('Düzensiz Gelir'),
-                trailing: Icon(Icons.arrow_right),
-                onTap: () {
-                  Navigator.pushNamed(context, "/duzensiz_gelir");
-                },
-              ),
-            ],
-          ),
-          ExpansionTile(
-            leading: Icon(Icons.account_balance_wallet_rounded),
-            title: Text('Gider'),
-            trailing: Icon(Icons.arrow_drop_down),
-            children: <Widget>[
-              ListTile(
-                title: Text('Düzenli Gider'),
-                trailing: Icon(Icons.arrow_right),
-                onTap: () {
-                  Navigator.pushNamed(context, "/duzenli_gider");
-                },
-              ),
-              ListTile(
-                title: Text('Düzensiz Gider'),
-                trailing: Icon(Icons.arrow_right),
-                onTap: () {
-                  Navigator.pushNamed(context, "/duzensiz_gider");
-                },
-              ),
-            ],
-          ),
           ListTile(
             leading: Icon(Icons.content_copy_sharp),
-            title: Text('Rapor'),
+            title: Text('Gelir - Gider - Rapor'),
             trailing: Icon(Icons.arrow_right),
             onTap: () {
               Navigator.pushNamed(context, "/rapor");
@@ -106,7 +64,7 @@ class _MyDrawerState extends State {
                 },
               ),
               ListTile(
-                title: Text('Vizyonumuz/Misyonumuz'),
+                title: Text('Vizyonumuz - Misyonumuz'),
                 trailing: Icon(Icons.arrow_right),
                 onTap: () {
                   Navigator.pushNamed(context, "/vizyonumuzmisyonumuz");
