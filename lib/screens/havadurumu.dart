@@ -1,4 +1,3 @@
-
 import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
@@ -8,8 +7,12 @@ import 'package:mobil_muhasebe/Widget/main_widget.dart';
 
 Future<WeatherInfo> fetchWeather() async {
   final zipCode = "42250";
-  final apiKey = "3644842938f2514fdf312d528cedaaf1";
-  final requestUrl = "https://api.openweathermap.org/data/2.5/weather?zip=${zipCode},tr&units=imperial&appid=${apiKey}";
+  final apiKey = "00d06216f715fca4dfe7305bc2f7e0e5";
+  final lat = "38.423733";
+  final lon = "27.142826";
+  final requestUrl =
+      "https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}";
+  /*"https://api.openweathermap.org/data/2.5/weather?zip=$42250,tr&units=imperial&appid=$00d06216f715fca4dfe7305bc2f7e0e5";*/
   final response = await http.get(Uri.parse(requestUrl));
 
   if (response.statusCode == 200) {
@@ -19,7 +22,7 @@ Future<WeatherInfo> fetchWeather() async {
   }
 }
 
-class WeatherInfo{
+class WeatherInfo {
   final String location;
   final double temp;
   final double tempMin;
@@ -28,22 +31,16 @@ class WeatherInfo{
   final int humidity;
   final double windspeed;
 
+  WeatherInfo(
+      {required this.location,
+      required this.temp,
+      required this.humidity,
+      required this.tempMax,
+      required this.tempMin,
+      required this.weather,
+      required this.windspeed});
 
-
-
-  WeatherInfo({
-    required this.location,
-    required this.temp,
-    required this.humidity,
-    required this.tempMax,
-    required this.tempMin,
-    required this.weather,
-    required this.windspeed
-
-  });
-
-
-  factory WeatherInfo.fromJson(Map<String , dynamic >json){
+  factory WeatherInfo.fromJson(Map<String, dynamic> json) {
     return WeatherInfo(
       location: json['name'],
       temp: json['main']['temp'],
@@ -66,32 +63,32 @@ class havadurumu extends StatefulWidget {
 class _havadurumuState extends State<havadurumu> {
   late Future<WeatherInfo> futureWeather;
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    futureWeather= fetchWeather();
+    futureWeather = fetchWeather();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Hava Durumu"),
+        appBar: AppBar(
+          title: Text("Hava Durumu"),
           flexibleSpace: Container(
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                   begin: Alignment.topLeft,
-                  end:Alignment.topRight,
-                  colors: <Color>[Colors.blueAccent, Colors.blueGrey]
-              ),
+                  end: Alignment.topRight,
+                  colors: <Color>[Colors.blueAccent, Colors.blueGrey]),
             ),
           ),
         ),
         drawer: MyDrawer(),
         body: FutureBuilder<WeatherInfo>(
             future: futureWeather,
-            builder: (context, snapshot)  {
-              if(snapshot.hasData) {
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
                 return MainWidget(
-                  location:  snapshot.data!.location,
+                  location: snapshot.data!.location,
                   temp: snapshot.data!.temp,
                   tempMin: snapshot.data!.tempMin,
                   tempMax: snapshot.data!.tempMax,
@@ -99,14 +96,12 @@ class _havadurumuState extends State<havadurumu> {
                   humidity: snapshot.data!.humidity,
                   windspeed: snapshot.data!.windspeed,
                 );
-              }else if (snapshot.hasError) {
+              } else if (snapshot.hasError) {
                 return Center(
-                  child:  Text("${snapshot.error}"),
+                  child: Text("${snapshot.error}"),
                 );
               }
               return CircularProgressIndicator();
-            }
-        )
-    );
+            }));
   }
 }

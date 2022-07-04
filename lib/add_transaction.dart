@@ -57,7 +57,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.topRight,
-                colors: <Color>[Colors.blueGrey, Colors.white],
+                colors: <Color>[Colors.blueAccent, Colors.blueGrey],
               ),
             ),
           ),
@@ -75,7 +75,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               style: TextStyle(
                   fontSize: 32.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.green[900]),
+                  color: Colors.indigo),
             ),
             //
             SizedBox(
@@ -86,7 +86,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.green[900],
+                    color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(
                       16.0,
                     ),
@@ -97,7 +97,6 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                   child: Icon(
                     Icons.attach_money,
                     size: 24.0,
-                    // color: Colors.grey[700],
                     color: Colors.white,
                   ),
                 ),
@@ -163,7 +162,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.green[900],
+                    color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(
                       16.0,
                     ),
@@ -174,7 +173,6 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                   child: Icon(
                     Icons.info_outline_rounded,
                     size: 24.0,
-                    // color: Colors.grey[700],
                     color: Colors.white,
                   ),
                 ),
@@ -206,7 +204,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Colors.green[900],
+                    color: Colors.blueGrey,
                     borderRadius: BorderRadius.circular(
                       16.0,
                     ),
@@ -217,7 +215,6 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                   child: Icon(
                     Icons.unfold_less_sharp,
                     size: 24.0,
-                    // color: Colors.grey[700],
                     color: Colors.white,
                   ),
                 ),
@@ -295,7 +292,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.green[900],
+                        color: Colors.blueGrey,
                         borderRadius: BorderRadius.circular(
                           16.0,
                         ),
@@ -334,7 +331,7 @@ class _AddExpenseNoGradientState extends State<AddExpenseNoGradient> {
               child: ElevatedButton(
                 style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.green),
+                      MaterialStateProperty.all<Color>(Colors.blue),
                 ),
                 onPressed: () {
                   if (amount != null) {

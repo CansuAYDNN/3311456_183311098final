@@ -53,7 +53,7 @@ class MainWidget extends StatelessWidget{
               Padding(
                 padding: EdgeInsets.only(top: 20.0, bottom: 20.0),
                 child: Text(
-                  "${temp.toInt().toString()}°",
+                  "${(temp-273.15).toInt().toString()}°",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 40.0,
@@ -61,7 +61,7 @@ class MainWidget extends StatelessWidget{
                 ),
               ),
               Text(
-                "En Yüksek ${tempMax.toInt().toString()}° ,  En Düşük ${tempMin.toInt().toString()}°",
+                "En Yüksek ${(tempMax-273.15).toInt().toString()}° ,  En Düşük ${(tempMin-273.15).toInt().toString()}°",
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 16.0,
@@ -76,7 +76,7 @@ class MainWidget extends StatelessWidget{
             padding: EdgeInsets.all(20.0),
             child: ListView(
               children: [
-                weathertile(icon: Icons.thermostat, title: "Sıcaklık", subtitle: "${temp.toInt().toString()} °"),
+                weathertile(icon: Icons.thermostat, title: "Sıcaklık", subtitle: "${(temp-273.15).toInt().toString()} °"),
                 weathertile(icon: Icons.filter_drama_outlined, title: "Hava", subtitle: "${weather.toString()}"),
                 weathertile(icon: Icons.wb_sunny, title: "Nem", subtitle: "${humidity.toString()}%"),
                 weathertile(icon: Icons.waves_outlined, title: "Rüzgar Hızı", subtitle: "${windspeed.toString().toString()} kmh"),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 SnackBar deleteInfoSnackBar = SnackBar(
-  backgroundColor: Colors.green[800],
+  backgroundColor: Colors.blueAccent,
   duration: Duration(
     seconds: 2,
   ),

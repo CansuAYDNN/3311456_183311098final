@@ -58,7 +58,7 @@ class _SplashState extends State<Splash> {
         toolbarHeight: 0.0,
       ),
       //
-      backgroundColor: Colors.green,
+      backgroundColor: Colors.blueAccent,
       //
       body: Center(
         child: Container(
